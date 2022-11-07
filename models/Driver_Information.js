@@ -20,6 +20,11 @@ const Driver_Information = mongoose.Schema({
     employee_notes:{type:String,default:"none"},
     other:{type:String,default:"none"},
     accidents_and_citations:{type:String,default:"none"},
+    is_active:
+   {
+    type:Boolean,
+    default:true
+   },
      company_id: {
     type: mongoose.Schema.ObjectId,
     ref: 'Company'}

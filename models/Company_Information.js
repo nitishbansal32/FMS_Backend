@@ -36,6 +36,11 @@ const CompanySchema = new mongoose.Schema({
    {
     type:String,
     default:"None"
+   },
+   is_active:
+   {
+    type:Boolean,
+    default:true
    }
    
   

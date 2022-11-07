@@ -25,6 +25,11 @@ const Trackter_Inventory = mongoose.Schema({
     PM3:{type:Date},
     days_remaining_for_next_inspection:{type:Number},
     mechanical_notes: {type:String },
+    is_active:
+   {
+    type:Boolean,
+    default:true
+   },
      company_id: {
     type: mongoose.Schema.ObjectId,
     ref: 'Company'}
