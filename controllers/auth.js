@@ -5,7 +5,20 @@ const { attachCookiesToResponse, createTokenUser } = require('../utils');
 
 const register = async (req, res) => {
   let{ email, name, password ,role} = req.body;
-
+ if(role==='super-admin' || role==='sub-super-admin')
+  {
+     if(req.role!='super-admin')
+     {
+        throw new CustomError.UnauthorizedError( 'Not authorized to access this route');
+     }
+  }
+  if(role==='admin')
+  {
+    if(req.role==='employee' || req.role==='insurance')
+     {
+        throw new CustomError.UnauthorizedError( 'Not authorized to access this route');
+     }
+  }
   const emailAlreadyExists = await User.findOne({ email });
   if (emailAlreadyExists) {
     throw new CustomError.BadRequestError('Email already exists');
