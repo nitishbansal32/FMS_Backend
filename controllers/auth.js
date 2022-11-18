@@ -78,7 +78,8 @@ const login = async (req, res) => {
     throw new CustomError.UnauthenticatedError('Invalid Credentials');
   }
   const tokenUser = createTokenUser(user);
-  attachCookiesToResponse({ res, user: tokenUser });
+  const token=createJWT({ payload: tokenUser });
+  attachCookiesToResponse({ res, user: tokenUser ,token});
   //console.log(req.user);
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
