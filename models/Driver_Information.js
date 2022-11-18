@@ -29,7 +29,7 @@ const Driver_Information = mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'Company'}
     
- });
+ },{timestamps: true});
 Driver_Information.pre('save', function(next) {
     
     let clone_Date = new Date(this.start_date);

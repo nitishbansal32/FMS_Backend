@@ -34,7 +34,7 @@ const Accident_Information = mongoose.Schema({
 
     
     
- });
+ },{timestamps: true});
  module.exports = mongoose.model('Accident',Accident_Information );
      
      

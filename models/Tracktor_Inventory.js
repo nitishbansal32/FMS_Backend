@@ -59,6 +59,6 @@ const Trackter_Inventory = mongoose.Schema({
 
 
     next();
-});
+},{timestamps: true});
 
 module.exports = mongoose.model('Tractor', Trackter_Inventory);
