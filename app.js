@@ -30,7 +30,8 @@ app.use(
 );
 app.use(helmet());
 app.use(cors({
-    origin: '*'
+    origin: '*',
+    credentials: true
 }));
 app.use(xss());
 app.use(mongoSanitize());
