@@ -23,6 +23,7 @@ const authenticateUser = async (req, res, next) => {
     req.user = {
       userId: payload.user.userId,
       role: payload.user.role,
+      company:payload.user.company
     };
 
     next();
