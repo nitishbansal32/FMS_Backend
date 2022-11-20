@@ -30,7 +30,7 @@ app.use(
 );
 app.use(helmet());
 app.use(cors(
- { origin: '*'}
+ { origin: 'http://localhost:3000'}
 ));
 app.use(xss());
 app.use(mongoSanitize());
@@ -45,6 +45,8 @@ app.use('/api/v1/LC',companyRouter);
 app.use('/api/v1/LC',authRoutes);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
+
+
 const port = process.env.PORT || 8000;
 const start = async () => {
   try {

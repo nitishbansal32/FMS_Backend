@@ -1,8 +1,11 @@
+const { signedCookies } = require('cookie-parser');
 const CustomError = require('../errors');
 const { isTokenValid } = require('../utils');
 
 const authenticateUser = async (req, res, next) => {
   const token = req.signedCookies.token;
+  //console.log(req.signedCookies.token)
+  
   if(!token)
   {
     const authHeader = req.headers.authorization;
