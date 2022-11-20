@@ -81,7 +81,7 @@ const login = async (req, res) => {
   const token=createJWT({ payload: tokenUser });
   attachCookiesToResponse({ res, user: tokenUser ,token});
   //console.log(req.user);
-  res.status(StatusCodes.OK).json({ user: tokenUser });
+  res.status(StatusCodes.OK).json({ user: tokenUser ,token});
 };
 const logout = async (req, res) => {
   res.cookie('token', 'logout', {
