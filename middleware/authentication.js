@@ -6,7 +6,7 @@ const authenticateUser = async (req, res, next) => {
   let token = req.signedCookies.token;
 
   console.log(req.signedCookies.token)
-  
+  console.log(req.Cookies);
   if(!token)
   {
     const authHeader = req.headers.authorization;
