@@ -4,7 +4,8 @@ const { isTokenValid } = require('../utils');
 
 const authenticateUser = async (req, res, next) => {
   const token = req.signedCookies.token;
-  //console.log(req.signedCookies.token)
+  
+  console.log(req.signedCookies.token)
   
   if(!token)
   {
@@ -13,6 +14,7 @@ const authenticateUser = async (req, res, next) => {
     token = authHeader.split(' ')[1];
   }
   }
+  console.log(token);
   if (!token) {
     throw new CustomError.UnauthenticatedError('Authentication Invalid');
   }
