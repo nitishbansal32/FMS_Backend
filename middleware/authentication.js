@@ -5,16 +5,17 @@ const { isTokenValid } = require('../utils');
 const authenticateUser = async (req, res, next) => {
   let token = req.signedCookies.token;
 
-  console.log(req.signedCookies.token)
-  console.log(req.Cookies);
+  console.log("token from signed cookie : "+req.signedCookies.token)
+  console.log("token from  cookie header : "+req.Cookies);
   if(!token)
   {
     const authHeader = req.headers.authorization;
   if (authHeader && authHeader.startsWith('Bearer')) {
     token = authHeader.split(' ')[1];
+     console.log("token from auth headrer: "+token);
   }
   }
-  console.log(token);
+ 
   if (!token) {
     console.log("token not received")
     throw new CustomError.UnauthenticatedError('Authentication Invalid');
