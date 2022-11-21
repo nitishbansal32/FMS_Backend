@@ -31,8 +31,31 @@ app.use(
 app.use(helmet());
 app.use(cors({
     origin: '*',
+    methods: "GET, POST, PUT, OPTIONS",
     credentials: true
 }));
+this.app.use((req, res, next) => {
+      let allowedOrigins = ["*"];
+      let origin = req.headers.origin;
+      // if (allowedOrigins.indexOf(origin) > -1) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      //}
+      res.header(
+        "Access-Control-Allow-Headers",
+        "Content-Type, Authorization, Content-Length, X-Requested-With"
+      );
+      res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+      res.header("X-XSS-Protection", "1; mode=block");
+      res.header("Strict-Transport-Security", "max-age=31536000");
+      res.header("X-Frame-Options", "SAMEORIGIN");
+      res.header("X-Content-Type-Options", "nosniff");
+
+      if (res.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        return res.status(204).json({});
+      }
+      next();
+    });
 
 app.use(xss());
 app.use(mongoSanitize());
