@@ -34,7 +34,7 @@ app.use(cors({
     methods: "GET, POST, PUT, OPTIONS",
     credentials: true
 }));
-this.app.use((req, res, next) => {
+app.use((req, res, next) => {
       let allowedOrigins = ["*"];
       let origin = req.headers.origin;
       // if (allowedOrigins.indexOf(origin) > -1) {
