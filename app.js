@@ -31,7 +31,7 @@ app.use(
 app.use(helmet());
 app.use(cors({
     origin:'*',
-    methods: "GET, POST, PUT, OPTIONS",
+    methods: "GET, POST, PUT",
     credentials: true
 }));
 app.use((req, res, next) => {
