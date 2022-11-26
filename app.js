@@ -30,16 +30,16 @@ app.use(
 );
 app.use(helmet());
 app.use(cors({
-    origin: '*',
+    origin:'http://localhost:3000/',
     methods: "GET, POST, PUT, OPTIONS",
     credentials: true
 }));
 app.use((req, res, next) => {
-      let allowedOrigins = ["localhost:3000"];
+      let allowedOrigins = ["*"];
       let origin = req.headers.origin;
-        origin = 'http://localhost:3000/'
+     //   origin = 'http://localhost:3000/'
       // if (allowedOrigins.indexOf(origin) > -1) {
-     res.setHeader("Access-Control-Allow-Origin", origin);
+     //res.setHeader("Access-Control-Allow-Origin", origin);
       //}
     
       res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
