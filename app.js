@@ -42,16 +42,16 @@ app.use((req, res, next) => {
     // res.setHeader("Access-Control-Allow-Origin", origin);
       //}
     
-      res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+      res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE","OPTIONS");
       res.header("X-XSS-Protection", "1; mode=block");
       res.header("Strict-Transport-Security", "max-age=31536000");
       res.header("X-Frame-Options", "SAMEORIGIN");
       res.header("X-Content-Type-Options", "nosniff");
 
-      if (res.method === "OPTIONS") {
+     /* if (res.method === "OPTIONS") {
         res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
         return res.status(204).json({});
-      }
+      }*/
       next();
     });
 
