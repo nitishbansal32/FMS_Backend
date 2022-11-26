@@ -88,6 +88,11 @@ const logout = async (req, res) => {
     httpOnly: true,
     expires: new Date(Date.now() + 1000),
   });
+    const authHeader = req.headers.authorization;
+  if (authHeader && authHeader.startsWith('Bearer')) {
+   let  token = authHeader.split(' ')[1];
+    token=null;
+  }
   res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 

@@ -56,6 +56,7 @@ const UserSchema = new mongoose.Schema({
     type:String,
     required:true,
     enum:["AM","PM"],
+    
 
 
   },
@@ -140,11 +141,6 @@ const UserSchema = new mongoose.Schema({
     documents:[{type:String}]
   },
   
-
-
-
-
-
 
 
 
