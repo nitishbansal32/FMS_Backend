@@ -37,7 +37,7 @@ app.use(cors({
 app.use((req, res, next) => {
       let allowedOrigins = ["localhost:3000"];
       let origin = req.headers.origin;
-        origin = "localhost:3000"
+        origin = 'http://localhost:3000/'
       // if (allowedOrigins.indexOf(origin) > -1) {
      res.setHeader("Access-Control-Allow-Origin", origin);
       //}
