@@ -24,4 +24,5 @@ const e = require('express');
      throw new CustomError.NotFoundError(`No employee with name: ${name} found`)
    
   }}
- module.exports={getAllEmployees,getCurrEmployees,updateEmployee}
+ 
+ module.exports={getAllEmployees,getCurrEmployees,updateEmployee};
