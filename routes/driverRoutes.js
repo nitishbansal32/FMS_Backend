@@ -5,7 +5,7 @@ const {createDriver,getAllDrivers,getSingleDriver,deleteDriver,updateDriver,getC
 const { authenticateUser, authorizePermissions,} = require('../middleware/authentication');
 router
   .route('/drivers')
-  .get(authenticateUser, getAllDrivers);
+  .get(authenticateUser,  authorizePermissions('super-admin','sub-super-admin'),getAllDrivers);
 router
   .route('/drivers/currDrivers')
   .get(authenticateUser, getCurrDrivers);
