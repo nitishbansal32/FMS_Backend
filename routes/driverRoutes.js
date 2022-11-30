@@ -8,7 +8,7 @@ router
   .get(authenticateUser,  authorizePermissions('super-admin','sub-super-admin'),getAllDrivers);
 router
   .route('/drivers/currDrivers')
-  .get(authenticateUser, getCurrDrivers);
+  .get(authenticateUser,authorizePermissions('admin'), getCurrDrivers);
 router.
 route('/drivers/:id')
 .get(authenticateUser,getSingleDriver);
