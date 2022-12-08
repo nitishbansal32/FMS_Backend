@@ -34,7 +34,7 @@ app.use(cors({
     methods: "GET, POST, PUT",
     credentials: true
 }));
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
       let allowedOrigins = ["*"];
       let origin = req.headers.origin;
      //   origin = 'http://localhost:3000/'
@@ -44,18 +44,19 @@ app.use((req, res, next) => {
     
       res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE","OPTIONS");
      
-    // res.header("Access-Control-Allow-Credentials", "TRUE");
+     res.header("Access-Control-Allow-Credentials", "TRUE");
       res.header("X-XSS-Protection", "1; mode=block");
-      res.header("Strict-Transport-Security", "max-age=31536000");
+     res.header("Strict-Transport-Security", "max-age=31536000");
       res.header("X-Frame-Options", "SAMEORIGIN");
       res.header("X-Content-Type-Options", "nosniff");
 
-     /* if (res.method === "OPTIONS") {
+      if (res.method === "OPTIONS") {
         res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
         return res.status(204).json({});
-      }*/
+      }
       next();
     });
+    */
 
 app.use(xss());
 app.use(mongoSanitize());
